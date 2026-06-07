@@ -9,10 +9,24 @@ def spin_row():
     return results
 
 def print_row(row):
-    print(" ".join(row))
+    # print(" ".join(row)) -- this joins the item of list row with a space giving it a clean look while displaying
+    print(" ! ".join(row))
 
-def get_payout():
-    pass
+def get_payout(row, bet):
+
+    if row[0] == row[1] == row[2] :
+        match row[0]:
+            case "🍒":
+                return bet*3
+            case "🍋":
+                return bet*4
+            case "⭐" :
+                return bet*10
+            case "7️⃣":
+                return bet*7
+
+    else :
+        return 0
 
 def main():
     balance = 100
@@ -43,5 +57,28 @@ def main():
         print("Spinning.... ")
         print_row(row)
 
-main()
+        payout = get_payout(row , bet)
+
+        if payout > 0:
+            print(f"You earned ${payout}")
+
+        else :
+            print ("You Lost")
+
+        balance += payout
+
+        print(f"Your current balance is ${balance}")
+
+        play_again = input("Do you want to play again? (y/n): ").upper()
+
+        if play_again != "Y":
+            break
+
+    print("******************************")
+    print(f"Your final balance is ${balance}")
+    print("******************************")
+
+
+if __name__ == "__main__":
+    main()
 
