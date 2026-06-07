@@ -7,4 +7,8 @@ Learning python by building a Slot Machine
 <br>
 2. results.append(random.choice(symbols)) -- choses a random item from a list
 <br>
-3. 
+# WHAT DID I ADD?
+<br>
+1.  A Jackpot pool that when hit gives a massive bonus 
+<br>
+2. stats like total spins total wins , total loss 
